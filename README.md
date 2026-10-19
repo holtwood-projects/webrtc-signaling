@@ -4,10 +4,10 @@
 
 # WebRTC Signaling
 
-**A production-style WebRTC signaling service** — implemented from scratch in Go, focusing on backend engineering practices such as authentication, horizontal scaling, observability, and deployment. A personal practice project that, together with its sister project [webrtc-call](https://github.com/build-workbench/webrtc-call), forms a contrasting learning path of "frontend call client vs. backend signaling service".
+**A production-style WebRTC signaling service** — implemented from scratch in Go, focusing on backend engineering practices such as authentication, horizontal scaling, observability, and deployment. A personal practice project that, together with its sister project [webrtc-call](https://github.com/holtwood-projects/webrtc-call), forms a contrasting learning path of "frontend call client vs. backend signaling service".
 
 [![Go](https://img.shields.io/badge/Go-1.22-00ADD8?logo=go&logoColor=white)](https://go.dev/)
-[![CI](https://github.com/build-workbench/webrtc-signaling/actions/workflows/ci.yml/badge.svg)](https://github.com/build-workbench/webrtc-signaling/actions/workflows/ci.yml)
+[![CI](https://github.com/holtwood-projects/webrtc-signaling/actions/workflows/ci.yml/badge.svg)](https://github.com/holtwood-projects/webrtc-signaling/actions/workflows/ci.yml)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 ## Product Screenshots
@@ -32,7 +32,7 @@ WebRTC media streams connect P2P directly between browsers, but "who is in which
 
 | Project | Positioning |
 |------|------|
-| [webrtc-call](https://github.com/build-workbench/webrtc-call) | **Frontend call client**: native browser WebRTC audio/video calls (1v1 / Mesh multi-party); experience the full P2P call flow first |
+| [webrtc-call](https://github.com/holtwood-projects/webrtc-call) | **Frontend call client**: native browser WebRTC audio/video calls (1v1 / Mesh multi-party); experience the full P2P call flow first |
 | **webrtc-signaling (this repo)** | **Engineering implementation**: adds authentication, horizontal scaling, observability, deployment, and testing on top of signaling |
 
 ## Features
@@ -141,7 +141,7 @@ Minimal production checklist:
 
 - **Know the boundaries** (honest disclosure, see also [Project Positioning](#project-positioning-and-target-scenarios)): signaling only — media is P2P and never transits the server; **no TURN**, so strict-NAT peers may fail to connect (self-host a coturn and add it via `SIGNAL_STUN`/`/ice-servers` if you need relaying); **no user system** — Join Tokens are issued manually; the cluster path is exercised by tests but has not been load-tested at scale.
 
-Pair this backend with the [webrtc-call](https://github.com/build-workbench/webrtc-call) frontend client, or point your own RTC frontend at the WebSocket signaling protocol documented below.
+Pair this backend with the [webrtc-call](https://github.com/holtwood-projects/webrtc-call) frontend client, or point your own RTC frontend at the WebSocket signaling protocol documented below.
 
 ## Configuration
 
@@ -211,10 +211,10 @@ Message envelope (`id`/`ts`/`from` are filled in by the server):
 
 # WebRTC Signaling
 
-**生产风格（production-style）的 WebRTC 信令服务** —— 用 Go 从零实现，聚焦认证、水平扩展、可观测性与部署等后端工程实践。个人练手作品，与姊妹项目 [webrtc-call](https://github.com/build-workbench/webrtc-call) 形成「前端通话客户端 vs 后端信令服务」的对照学习路径。
+**生产风格（production-style）的 WebRTC 信令服务** —— 用 Go 从零实现，聚焦认证、水平扩展、可观测性与部署等后端工程实践。个人练手作品，与姊妹项目 [webrtc-call](https://github.com/holtwood-projects/webrtc-call) 形成「前端通话客户端 vs 后端信令服务」的对照学习路径。
 
 [![Go](https://img.shields.io/badge/Go-1.22-00ADD8?logo=go&logoColor=white)](https://go.dev/)
-[![CI](https://github.com/build-workbench/webrtc-signaling/actions/workflows/ci.yml/badge.svg)](https://github.com/build-workbench/webrtc-signaling/actions/workflows/ci.yml)
+[![CI](https://github.com/holtwood-projects/webrtc-signaling/actions/workflows/ci.yml/badge.svg)](https://github.com/holtwood-projects/webrtc-signaling/actions/workflows/ci.yml)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 ## 产品截图
@@ -239,7 +239,7 @@ WebRTC 的媒体流在浏览器之间 P2P 直连，但"谁在哪个房间、如�
 
 | 项目 | 定位 |
 |------|------|
-| [webrtc-call](https://github.com/build-workbench/webrtc-call) | **前端通话客户端**：浏览器原生 WebRTC 音视频通话（1v1 / Mesh 多人），先体验 P2P 通话全流程 |
+| [webrtc-call](https://github.com/holtwood-projects/webrtc-call) | **前端通话客户端**：浏览器原生 WebRTC 音视频通话（1v1 / Mesh 多人），先体验 P2P 通话全流程 |
 | **webrtc-signaling（本仓库）** | **工程化实现**：在信令之上补齐认证、水平扩展、可观测性、部署与测试 |
 
 ## 功能特性
@@ -348,7 +348,7 @@ docker compose up -d --build
 
 - **了解边界**（如实声明，另见[项目定位](#项目定位与场景目标)）：本服务只做信令——媒体流 P2P 直连、不经过服务器；**无 TURN**，严格 NAT 环境可能连不通（如需中继，自建 coturn 并通过 `SIGNAL_STUN`/`/ice-servers` 下发）；**无用户系统**，Join Token 靠管理 API 手工签发；集群路径有测试覆盖，但未做过大规模压测。
 
-将此后端与 [webrtc-call](https://github.com/build-workbench/webrtc-call) 前端呼叫客户端配对使用，或按下方文档的 WebSocket 信令协议接入你自己的 RTC 前端。
+将此后端与 [webrtc-call](https://github.com/holtwood-projects/webrtc-call) 前端呼叫客户端配对使用，或按下方文档的 WebSocket 信令协议接入你自己的 RTC 前端。
 
 ## 配置
 
