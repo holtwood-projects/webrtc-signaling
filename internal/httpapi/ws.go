@@ -7,7 +7,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/build-workbench/webrtc-signaling/internal/room"
+	"github.com/holtwood-projects/webrtc-signaling/internal/room"
 	"github.com/google/uuid"
 	"github.com/gorilla/websocket"
 	"go.uber.org/zap"

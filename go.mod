@@ -1,4 +1,4 @@
-module github.com/build-workbench/webrtc-signaling
+module github.com/holtwood-projects/webrtc-signaling
 
 go 1.22
 

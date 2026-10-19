@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/build-workbench/webrtc-signaling/internal/config"
+	"github.com/holtwood-projects/webrtc-signaling/internal/config"
 	"github.com/go-chi/chi/v5"
 )
 

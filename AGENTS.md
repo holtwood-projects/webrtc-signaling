@@ -25,7 +25,7 @@
 
 ## 关键约束
 
-- Go 1.22（go.mod 与 CI 的 setup-go 一致；Dockerfile 构建镜像用 1.23）；模块路径 `github.com/build-workbench/webrtc-signaling`
+- Go 1.22（go.mod 与 CI 的 setup-go 一致；Dockerfile 构建镜像用 1.23）；模块路径 `github.com/holtwood-projects/webrtc-signaling`
 - CI（`.github/workflows/ci.yml`）执行 `go build ./...` + `go test -race -count=1 ./...` + `go vet ./...`，提交前本地至少跑 `make test` 与 `make vet`
 - 配置只走环境变量：`SIGNAL_JWT_SECRET` 必填；`SIGNAL_REDIS_ADDR` 非空即启用 Redis Pub/Sub 多节点扩展，`SIGNAL_ALLOWED_ORIGINS` 控制 Origin 白名单
 - WebSocket 消息统一信封（`id` / `version` / `roomId` / `from` / `to` / `ts`），错误码 2001~3000 与消息类型定义见 README「API 参考」，改协议须同步更新

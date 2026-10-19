@@ -4,8 +4,8 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/build-workbench/webrtc-signaling/internal/observability"
-	"github.com/build-workbench/webrtc-signaling/internal/room"
+	"github.com/holtwood-projects/webrtc-signaling/internal/observability"
+	"github.com/holtwood-projects/webrtc-signaling/internal/room"
 	"go.uber.org/zap"
 )
 
