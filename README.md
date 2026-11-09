@@ -81,10 +81,11 @@ web/index.html                  单文件 Demo 前端
 
 ```bash
 export SIGNAL_JWT_SECRET="change-me-to-a-long-random-secret"
+export SIGNAL_ADMIN_KEY="$(openssl rand -hex 16)"
 make run
 ```
 
-Open `http://localhost:8080/demo`, enter a room and a nickname, and try it out.
+Open `http://localhost:8080/demo`, enter a room, a nickname and the same `SIGNAL_ADMIN_KEY` in the "Admin Key" field, then join. The Demo uses that key to request a Join Token from `/api/v1/rooms/{id}/join-token`; it is kept only in this browser's `localStorage`. Without `SIGNAL_ADMIN_KEY` the server refuses to issue tokens (HTTP 503) and the Demo cannot connect.
 
 ### Multiple Instances (Redis Scaling)
 
@@ -288,10 +289,11 @@ web/index.html                  单文件 Demo 前端
 
 ```bash
 export SIGNAL_JWT_SECRET="change-me-to-a-long-random-secret"
+export SIGNAL_ADMIN_KEY="$(openssl rand -hex 16)"
 make run
 ```
 
-打开 `http://localhost:8080/demo`，输入房间和昵称即可体验。
+打开 `http://localhost:8080/demo`，输入房间、昵称和相同的 `SIGNAL_ADMIN_KEY`（页面上的「管理密钥」），即可加入。Demo 用该密钥向 `/api/v1/rooms/{id}/join-token` 申请 Join Token，密钥只保存在当前浏览器的 `localStorage`。未设置 `SIGNAL_ADMIN_KEY` 时服务端拒绝签发（HTTP 503），Demo 无法连接。
 
 ### 多实例（Redis 扩展）
 

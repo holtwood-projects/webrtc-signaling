@@ -8,6 +8,8 @@ WebRTC Signaling —— 用 Go 实现的 WebRTC 信令后端,聚焦认证、水�
 ### 修复
 
 - 安全：未配置 `SIGNAL_ADMIN_KEY` 时禁用 join-token 签发端点（返回 503），避免默认部署下任何人自签任意房间/任意角色的令牌。
+- 安全：修复 Demo 前端的存储型 XSS。系统日志与聊天消息把其他参与者的 `displayName` 直接拼进 `innerHTML`，房内任意用户可让其他人的页面执行脚本；现统一转义 `& < > " '` 后再插入。
+- 修复 Demo 在 fail-closed 之后完全无法加入房间的问题：新增「管理密钥」输入框，申请 join-token 时携带 `X-Admin-Key`，并同步更新中英文 Quick Start 说明。
 
 ## [v0.1.0] - 2026-09-28
 ### 新增
